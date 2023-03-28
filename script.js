@@ -3,6 +3,12 @@ const inputNama = document.getElementById("inputNama")
 const inputUmur = document.getElementById("inputUmur")
 const inputSangu = document.getElementById("inputSangu")
 
+function resetAllInput() {
+  inputNama.value = ""
+  inputUmur.value = ""
+  inputSangu.value = ""
+}
+
 class Pendaftar {
   constructor(nama, umur, uangSangu) {
     this.nama = nama
@@ -21,10 +27,7 @@ submitButton.addEventListener("click", function(event) {
     form.classList.add("was-validated")
   } else {
     form.classList.remove("was-validated")
-    
-    inputNama.value = ""
-    inputUmur.value = ""
-    inputSangu.value = ""
+    resetAllInput()
   }
   
 })
