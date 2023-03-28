@@ -35,7 +35,6 @@ submitButton.addEventListener("click", function(event) {
   } else {
     form.classList.remove("was-validated")
     listPendaftar.push(new Pendaftar(inputNama.value, parseInt(inputUmur.value), parseInt(inputSangu.value)))
-    console.log(listPendaftar)
     resetAllInput()
 
     const averageUmur = listPendaftar.reduce((a, b) => a + b.umur, 0) / listPendaftar.length
