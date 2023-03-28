@@ -56,6 +56,12 @@ submitButton.addEventListener("click", function(event) {
     </tr>
     `
     tbody.innerHTML = element
+
+    Swal.fire({
+      icon: "success",
+      title: "Berhasil Menambahkan ke List"
+      }
+    )
   }
   
 })
