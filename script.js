@@ -19,7 +19,7 @@ class Pendaftar {
 }
 
 function thousandSeparator(num) {
-  return num.toLocaleString().replaceAll(",", ".")
+  return num.toLocaleString("id-ID")
 }
 
 const listPendaftar = []
@@ -43,15 +43,15 @@ submitButton.addEventListener("click", function(event) {
     const element = `
     ${listPendaftar.map((pendaftar, index) =>
       `<tr>
-      <th scope="row">${index + 1}</td>
-      <td>${pendaftar.nama}</td>
-      <td>${pendaftar.umur}</td>
-      <td>Rp${thousandSeparator(pendaftar.uangSangu)}</td>
+        <th scope="row">${index + 1}</td>
+        <td>${pendaftar.nama}</td>
+        <td>${pendaftar.umur}</td>
+        <td>Rp${thousandSeparator(pendaftar.uangSangu)}</td>
       </tr>`
       ).join("")}
       
     <tr>
-      <td colspan="4">Rata rata pendaftar memiliki uang sangu sebesar Rp${thousandSeparator(averageUangSangu)} dengan rata rata umur ${averageUmur} tahun</td>
+      <td colspan="4">Rata rata pendaftar memiliki uang sangu sebesar Rp${thousandSeparator(averageUangSangu)} dengan rata rata umur ${thousandSeparator(averageUmur)} tahun</td>
     </tr>
     `
     tbody.innerHTML = element
