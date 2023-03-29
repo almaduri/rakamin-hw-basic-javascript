@@ -28,6 +28,14 @@ function getAverageFromList(array, category) {
   })
 }
 
+function alertSuccess() {
+  Swal.fire({
+    icon: "success",
+    title: "Berhasil Menambahkan ke List"
+    }
+  )
+}
+
 const listPendaftar = []
 
 submitButton.addEventListener("click", async function(event) {
@@ -62,11 +70,7 @@ submitButton.addEventListener("click", async function(event) {
     `
     tbody.innerHTML = element
 
-    Swal.fire({
-      icon: "success",
-      title: "Berhasil Menambahkan ke List"
-      }
-    )
+    alertSuccess()
   }
   
 })
