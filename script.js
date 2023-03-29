@@ -22,9 +22,15 @@ function thousandSeparator(num) {
   return num.toLocaleString("id-ID")
 }
 
+function getAverageFromList(array, category) {
+  return new Promise((resolve) => {
+    resolve(array.reduce((a, b) => a + b[category], 0) / array.length)
+  })
+}
+
 const listPendaftar = []
 
-submitButton.addEventListener("click", function(event) {
+submitButton.addEventListener("click", async function(event) {
   event.preventDefault()
   const form = document.querySelector(".needs-validation")
   
@@ -37,12 +43,12 @@ submitButton.addEventListener("click", function(event) {
     listPendaftar.push(new Pendaftar(inputNama.value, parseInt(inputUmur.value), parseInt(inputSangu.value)))
     resetAllInput()
 
-    const averageUmur = listPendaftar.reduce((a, b) => a + b.umur, 0) / listPendaftar.length
-    const averageUangSangu = listPendaftar.reduce((a, b) => a + b.uangSangu, 0) / listPendaftar.length
-    
+    const averageUmur = await getAverageFromList(listPendaftar, "umur")
+    const averageUangSangu = await getAverageFromList(listPendaftar, "uangSangu")
+
     const element = `
-    ${listPendaftar.map((pendaftar, index) =>
-      `<tr>
+    ${listPendaftar.map((pendaftar, index) => `
+      <tr>
         <th scope="row">${index + 1}</td>
         <td>${pendaftar.nama}</td>
         <td>${pendaftar.umur}</td>
