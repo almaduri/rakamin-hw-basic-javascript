@@ -22,9 +22,9 @@ function thousandSeparator(num) {
   return num.toLocaleString("id-ID")
 }
 
-function getAverageFromList(array, category) {
+function getAverageFromList(array, property) {
   return new Promise((resolve) => {
-    resolve(array.reduce((a, b) => a + b[category], 0) / array.length)
+    resolve(array.reduce((a, b) => a + b[property], 0) / array.length)
   })
 }
 
