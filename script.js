@@ -3,6 +3,8 @@ const inputNama = document.getElementById("inputNama")
 const inputUmur = document.getElementById("inputUmur")
 const inputSangu = document.getElementById("inputSangu")
 const tbody = document.querySelector("tbody.table-group-divider")
+const resumeCard = document.querySelector("div.resume-card")
+const resume = document.querySelector("h5.resume")
 
 function resetAllInput() {
   inputNama.value = ""
@@ -63,13 +65,12 @@ submitButton.addEventListener("click", async function(event) {
         <td>Rp${thousandSeparator(uangSangu)}</td>
       </tr>`
       ).join("")}
-      
-    <tr>
-      <td colspan="4">Rata rata pendaftar memiliki uang sangu sebesar Rp${thousandSeparator(averageUangSangu)} dengan rata rata umur ${thousandSeparator(averageUmur)} tahun</td>
-    </tr>
     `
+    
     tbody.innerHTML = element
 
+    resumeCard.style.display = "block"
+    resume.innerHTML = `Rata rata pendaftar memiliki uang sangu sebesar Rp${thousandSeparator(averageUangSangu)} dengan rata rata umur ${thousandSeparator(averageUmur)} tahun`
     alertSuccess()
   }
   
