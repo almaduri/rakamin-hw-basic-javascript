@@ -55,12 +55,12 @@ submitButton.addEventListener("click", async function(event) {
     const averageUangSangu = await getAverageFromList(listPendaftar, "uangSangu")
 
     const element = `
-    ${listPendaftar.map((pendaftar, index) => `
+    ${listPendaftar.map(({nama, umur, uangSangu}, index) => `
       <tr>
         <th scope="row">${index + 1}</td>
-        <td>${pendaftar.nama}</td>
-        <td>${pendaftar.umur}</td>
-        <td>Rp${thousandSeparator(pendaftar.uangSangu)}</td>
+        <td>${nama}</td>
+        <td>${umur}</td>
+        <td>Rp${thousandSeparator(uangSangu)}</td>
       </tr>`
       ).join("")}
       
